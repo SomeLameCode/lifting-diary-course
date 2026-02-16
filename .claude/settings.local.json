@@ -23,7 +23,10 @@
       "Bash(git mv:*)",
       "Bash(npx shadcn@latest add:*)",
       "Bash(npm run build:*)",
-      "Bash(npx tsc:*)"
+      "Bash(npx tsc:*)",
+      "Bash(git checkout:*)",
+      "Bash(git stash:*)",
+      "Bash(done)"
     ]
   }
 }

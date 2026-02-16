@@ -26,6 +26,22 @@ export async function getWorkoutsByDate(userId: string, date: Date) {
   });
 }
 
+export async function createWorkout(
+  userId: string,
+  data: { name?: string; workoutDate: Date }
+) {
+  const [workout] = await db
+    .insert(workouts)
+    .values({
+      userId,
+      name: data.name ?? null,
+      workoutDate: data.workoutDate,
+    })
+    .returning();
+
+  return workout;
+}
+
 export type WorkoutWithExercises = Awaited<
   ReturnType<typeof getWorkoutsByDate>
 >[number];
