@@ -1,23 +1,13 @@
 "use client";
 
-import type { WorkoutWithExercises } from "../actions";
+import type { Workout } from "./workout-card";
 import { WorkoutCard } from "./workout-card";
-import { Loader2 } from "lucide-react";
 
 interface WorkoutListProps {
-  workouts: WorkoutWithExercises[];
-  isLoading: boolean;
+  workouts: Workout[];
 }
 
-export function WorkoutList({ workouts, isLoading }: WorkoutListProps) {
-  if (isLoading) {
-    return (
-      <div className="flex items-center justify-center py-12">
-        <Loader2 className="h-6 w-6 animate-spin text-muted-foreground" />
-      </div>
-    );
-  }
-
+export function WorkoutList({ workouts }: WorkoutListProps) {
   if (workouts.length === 0) {
     return (
       <div className="text-center py-12">
