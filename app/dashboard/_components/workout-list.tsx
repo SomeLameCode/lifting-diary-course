@@ -1,10 +1,10 @@
 "use client";
 
-import type { Workout } from "./workout-card";
+import type { WorkoutWithExercises } from "@/data/workouts";
 import { WorkoutCard } from "./workout-card";
 
 interface WorkoutListProps {
-  workouts: Workout[];
+  workouts: WorkoutWithExercises[];
 }
 
 export function WorkoutList({ workouts }: WorkoutListProps) {

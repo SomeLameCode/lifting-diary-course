@@ -8,27 +8,10 @@ import {
 } from "@/components/ui/card";
 import { Clock, Dumbbell } from "lucide-react";
 import { format } from "date-fns";
-
-export type Workout = {
-  id: string;
-  name: string | null;
-  startedAt: Date | null;
-  exercises: {
-    id: string;
-    name: string;
-    sets: {
-      id: string;
-      setNumber: number;
-      reps: number;
-      weight: number;
-      weightUnit: "kg" | "lbs";
-      rpe: number | null;
-    }[];
-  }[];
-};
+import type { WorkoutWithExercises } from "@/data/workouts";
 
 interface WorkoutCardProps {
-  workout: Workout;
+  workout: WorkoutWithExercises;
 }
 
 export function WorkoutCard({ workout }: WorkoutCardProps) {
