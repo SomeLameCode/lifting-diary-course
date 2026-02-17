@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import type { WorkoutWithExercises } from "@/data/workouts";
 import { WorkoutCard } from "./workout-card";
 
@@ -21,7 +22,9 @@ export function WorkoutList({ workouts }: WorkoutListProps) {
   return (
     <div className="space-y-4">
       {workouts.map((workout) => (
-        <WorkoutCard key={workout.id} workout={workout} />
+        <Link key={workout.id} href={`/dashboard/workout/${workout.id}`}>
+          <WorkoutCard workout={workout} />
+        </Link>
       ))}
     </div>
   );
