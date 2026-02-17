@@ -82,6 +82,13 @@ export const sets = pgTable(
   ]
 );
 
+export const exerciseCatalog = pgTable('exercise_catalog', {
+  id: uuid('id').defaultRandom().primaryKey(),
+  name: text('name').notNull().unique(),
+  muscleGroup: text('muscle_group'),
+  createdAt: timestamp('created_at', { withTimezone: true }).defaultNow().notNull(),
+});
+
 // ============================================
 // RELATIONS
 // ============================================
@@ -118,3 +125,6 @@ export type Exercise = typeof exercises.$inferSelect;
 export type Set = typeof sets.$inferSelect;
 
 export type WeightUnit = 'kg' | 'lbs';
+
+export type ExerciseCatalog = typeof exerciseCatalog.$inferSelect;
+export type NewExerciseCatalog = typeof exerciseCatalog.$inferInsert;

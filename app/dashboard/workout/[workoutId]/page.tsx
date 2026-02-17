@@ -2,6 +2,7 @@ import { auth } from "@clerk/nextjs/server";
 import { redirect, notFound } from "next/navigation";
 import { format } from "date-fns";
 import { getWorkoutWithExercises } from "@/data/workouts";
+import { getExerciseCatalog } from "@/data/exercises";
 import { EditWorkoutForm } from "./_components/edit-workout-form";
 import { ExerciseList } from "./_components/exercise-list";
 
@@ -14,7 +15,10 @@ export default async function EditWorkoutPage({
   if (!userId) redirect("/");
 
   const { workoutId } = await params;
-  const workout = await getWorkoutWithExercises(userId, workoutId);
+  const [workout, catalog] = await Promise.all([
+    getWorkoutWithExercises(userId, workoutId),
+    getExerciseCatalog(),
+  ]);
   if (!workout) notFound();
 
   const workoutDate = format(new Date(workout.workoutDate), "yyyy-MM-dd");
@@ -30,7 +34,7 @@ export default async function EditWorkoutPage({
 
       <div className="mt-10">
         <h2 className="text-xl font-semibold tracking-tight mb-4">Exercises</h2>
-        <ExerciseList workoutId={workout.id} exercises={workout.exercises} />
+        <ExerciseList workoutId={workout.id} exercises={workout.exercises} catalog={catalog} />
       </div>
     </main>
   );

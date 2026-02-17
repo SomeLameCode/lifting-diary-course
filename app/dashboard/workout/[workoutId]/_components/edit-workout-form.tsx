@@ -12,7 +12,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { DatePicker } from "@/app/dashboard/_components/date-picker";
+import dynamic from "next/dynamic";
+
+const DatePicker = dynamic(
+  () => import("@/app/dashboard/_components/date-picker").then((m) => m.DatePicker),
+  { ssr: false }
+);
 import { updateWorkoutAction } from "../actions";
 
 interface EditWorkoutFormProps {

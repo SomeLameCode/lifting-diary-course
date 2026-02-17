@@ -1,6 +1,13 @@
 import { db } from "@/src/db";
-import { exercises, workouts } from "@/src/db/schema";
-import { and, eq, max } from "drizzle-orm";
+import { exercises, exerciseCatalog, workouts } from "@/src/db/schema";
+import { and, asc, eq, max } from "drizzle-orm";
+
+export async function getExerciseCatalog() {
+  return db
+    .select({ id: exerciseCatalog.id, name: exerciseCatalog.name, muscleGroup: exerciseCatalog.muscleGroup })
+    .from(exerciseCatalog)
+    .orderBy(asc(exerciseCatalog.muscleGroup), asc(exerciseCatalog.name));
+}
 
 export async function createExercise(
   userId: string,
