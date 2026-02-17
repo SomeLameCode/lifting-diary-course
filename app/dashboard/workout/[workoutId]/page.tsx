@@ -1,8 +1,9 @@
 import { auth } from "@clerk/nextjs/server";
 import { redirect, notFound } from "next/navigation";
 import { format } from "date-fns";
-import { getWorkoutById } from "@/data/workouts";
+import { getWorkoutWithExercises } from "@/data/workouts";
 import { EditWorkoutForm } from "./_components/edit-workout-form";
+import { ExerciseList } from "./_components/exercise-list";
 
 export default async function EditWorkoutPage({
   params,
@@ -13,7 +14,7 @@ export default async function EditWorkoutPage({
   if (!userId) redirect("/");
 
   const { workoutId } = await params;
-  const workout = await getWorkoutById(userId, workoutId);
+  const workout = await getWorkoutWithExercises(userId, workoutId);
   if (!workout) notFound();
 
   const workoutDate = format(new Date(workout.workoutDate), "yyyy-MM-dd");
@@ -26,6 +27,11 @@ export default async function EditWorkoutPage({
         initialName={workout.name ?? ""}
         initialDate={workoutDate}
       />
+
+      <div className="mt-10">
+        <h2 className="text-xl font-semibold tracking-tight mb-4">Exercises</h2>
+        <ExerciseList workoutId={workout.id} exercises={workout.exercises} />
+      </div>
     </main>
   );
 }

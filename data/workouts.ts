@@ -68,6 +68,23 @@ export async function updateWorkout(
   return workout;
 }
 
+export async function getWorkoutWithExercises(userId: string, workoutId: string) {
+  const result = await db.query.workouts.findFirst({
+    where: and(eq(workouts.userId, userId), eq(workouts.id, workoutId)),
+    with: {
+      exercises: {
+        orderBy: (exercises, { asc }) => [asc(exercises.order)],
+        with: {
+          sets: {
+            orderBy: (sets, { asc }) => [asc(sets.setNumber)],
+          },
+        },
+      },
+    },
+  });
+  return result ?? null;
+}
+
 export type WorkoutWithExercises = Awaited<
   ReturnType<typeof getWorkoutsByDate>
 >[number];
