@@ -42,6 +42,32 @@ export async function createWorkout(
   return workout;
 }
 
+export async function getWorkoutById(userId: string, workoutId: string) {
+  const result = await db.query.workouts.findFirst({
+    where: and(eq(workouts.userId, userId), eq(workouts.id, workoutId)),
+  });
+
+  return result ?? null;
+}
+
+export async function updateWorkout(
+  userId: string,
+  workoutId: string,
+  data: { name?: string; workoutDate: Date }
+) {
+  const [workout] = await db
+    .update(workouts)
+    .set({
+      name: data.name ?? null,
+      workoutDate: data.workoutDate,
+      updatedAt: new Date(),
+    })
+    .where(and(eq(workouts.id, workoutId), eq(workouts.userId, userId)))
+    .returning();
+
+  return workout;
+}
+
 export type WorkoutWithExercises = Awaited<
   ReturnType<typeof getWorkoutsByDate>
 >[number];
