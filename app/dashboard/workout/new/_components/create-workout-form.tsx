@@ -69,9 +69,18 @@ export function CreateWorkoutForm({ defaultDate }: CreateWorkoutFormProps) {
             />
           </div>
 
-          <Button type="submit" disabled={isPending}>
-            {isPending ? "Creating..." : "Create Workout"}
-          </Button>
+          <div className="flex gap-2">
+            <Button type="submit" disabled={isPending} variant="outline">
+              {isPending ? "Creating..." : "Create Workout"}
+            </Button>
+            <Button
+              type="button"
+              variant="outline"
+              onClick={() => router.push("/dashboard")}
+            >
+              Cancel
+            </Button>
+          </div>
         </form>
       </CardContent>
     </Card>

@@ -76,9 +76,18 @@ export function EditWorkoutForm({
             />
           </div>
 
-          <Button type="submit" disabled={isPending}>
-            {isPending ? "Saving..." : "Save Changes"}
-          </Button>
+          <div className="flex gap-2">
+            <Button type="submit" disabled={isPending} variant="outline">
+              {isPending ? "Saving..." : "Save Changes"}
+            </Button>
+            <Button
+              type="button"
+              variant="outline"
+              onClick={() => router.push("/dashboard")}
+            >
+              Cancel
+            </Button>
+          </div>
         </form>
       </CardContent>
     </Card>
