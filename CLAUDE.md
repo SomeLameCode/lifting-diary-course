@@ -11,6 +11,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - /docs/data-mutations.md
 - /docs/auth.md
 - /docs/routing.md
+- /docs/redirect.md
 
 ## Build & Development Commands
 
