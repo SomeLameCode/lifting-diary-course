@@ -1,5 +1,6 @@
 # Data Fetching Standards
 
+
 ## Server Components Only
 
 **ALL data fetching MUST be done in Server Components.** This is a hard rule with no exceptions.
