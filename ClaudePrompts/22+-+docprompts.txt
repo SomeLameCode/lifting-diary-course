@@ -1,0 +1,20 @@
+Review the entire project (architecture, structure, dependencies, workflows, and design decisions).
+Generate a professional client-facing Design & Handover Document in Markdown format.
+Requirements:
+- File name: ClientDoc.md
+- Save under: /ClaudePrompts/ClientDoc.md
+- Output must be clean Markdown, ready for delivery.
+The document must enable the client to understand, maintain, and further develop the project independently.
+
+Include the following sections:
+- Project Overview
+- Architecture
+- Tech Stack & Dependencies
+- Project Structure
+- Setup & Deployment
+- Development Workflow
+- Configuration
+- Known Limitations
+- Suggested Future Improvements (mandatory)
+
+If information is missing, clearly state assumptions.
