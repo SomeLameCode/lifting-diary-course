@@ -1,0 +1,6 @@
+[prompt 1 / edit mode]:
+
+Create a new routing.md documentation file in the /docs directory. 
+This file should highlight the coding standards for everything to do with routing where all routes in this app should be accessed via /dashboard.
+The /dashboard page and any sub pages should be protected routes that are only accessible by logged in users.
+Route protection should be done via the next js middleware

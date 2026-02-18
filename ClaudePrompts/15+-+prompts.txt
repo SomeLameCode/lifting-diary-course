@@ -1,0 +1,11 @@
+[prompt 1 / default mode]:
+I want you to outline a plan on how to fix the issue in the /dashboard page @src/app/dashboard/page.tsx where whenever a new date is selected in the calendar the data isn't currently loading for that particular date
+
+[prompt 2 / edit mode]:
+this looks great. implement these changes.
+
+[prompt 3 / edit mode]:
+@src/app/dashboard/page.tsx @src/app/dashboard/calendar-client.tsx there is an issue with the calendar whenever I select a date, the previous date is selected. For example if I select 25th September in the calendar, the selected date changes to the 24th September. Could this be a timezone issue? 
+
+[prompt 4 / edit mode]:
+this all works if I manually type into the url the date that I want to load. however whenever I click on a new date within the calendar the issue still exists.

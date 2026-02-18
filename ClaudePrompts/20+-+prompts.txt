@@ -1,0 +1,11 @@
+[prompt 1 / edit mode]:
+create a new page at /dashboard/workout/[workoutId] this page will be the edit / update workout page.
+
+[prompt 2 / edit mode]:
+create a new docs/server-components.md file outlining the coding standards for server components specifically accessing params MUST be awaited because this is a next js 15 project where params HAVE to be awaited as it's a promise.
+
+
+
+
+
+

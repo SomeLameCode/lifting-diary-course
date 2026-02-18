@@ -1,0 +1,4 @@
+[prompt 1 / edit mode]:
+/merge-and-create-branch master edit-workout-page
+
+/merge-and-create-branch edit-workout-page

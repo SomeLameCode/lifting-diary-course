@@ -1,0 +1,8 @@
+[prompt 1 / edit mode]:
+create a new page at /dashboard/workout/new with a form to create a new workout.
+
+[prompt 2 / edit mode]:
+the redirect should be done client side, not within the server action
+
+[prompt 3 / edit mode]:
+add into the docs/data-mutations.md file a rule that says the redirect() function should not be used within server actions. redirects should instead be done client side after the call to a server action resolves.
